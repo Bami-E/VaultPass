@@ -28,4 +28,49 @@ The system solves major security flaws such as:
 - bcrypt (password hashing)
 
 
-## 📁 Project Structure
+##  Project Structure
+
+## Setup
+npm install  
+Create .env file:  
+PORT=4011  
+MONGO_URI=your_mongo_uri  
+JWT_SECRET=your_secret  
+JWT_EXPIRES_IN=1h  
+
+Run server:  
+npm run dev  
+
+## Features
+- User registration and login (JWT auth)
+- Role-based access control (user, moderator, admin)
+- Secure password hashing
+- Account locking after 5 failed login attempts (15 min lock)
+- JWT expiration handling (1 hour)
+- Activity logging (failed logins, forbidden access, deletions)
+
+## API Endpoints
+
+Public:
+GET /api/public/message
+
+Auth:
+POST /api/auth/signup  
+POST /api/auth/signin  
+
+User:
+GET /api/user/profile (protected)
+
+Moderator:
+GET /api/moderator/reports (moderator, admin)
+
+Admin:
+DELETE /api/admin/user/:id (admin only, cannot delete self)  
+POST /api/admin/promote/:id (admin only, cannot promote admin)
+
+## Security Rules
+- Passwords are hashed
+- JWT required for protected routes
+- Tokens expire in 1 hour
+- Accounts lock after repeated failed login attempts
+- Unauthorized actions are logged in MongoDB
