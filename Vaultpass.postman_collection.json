@@ -13,16 +13,90 @@
         {
           "name": "SignUp",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fullName\": \"Matt\",\r\n  \"email\": \"oludwa@email.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4011/api/auth/signup",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "auth",
+                "signup"
+              ]
+            }
           },
           "response": []
         },
         {
           "name": "SignIn",
           "request": {
-            "method": "GET",
-            "header": []
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"email\": \"eni@email.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4011/api/auth/signin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "auth",
+                "signin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Signin",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"oludwa@email.com\",\r\n  \"password\": \"123456\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4011/api/auth/signin",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "auth",
+                "signin"
+              ]
+            }
           },
           "response": []
         }
@@ -33,9 +107,44 @@
       "item": [
         {
           "name": "Profile",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjBlNjdlZTRkNWE0MDZkZThkNTEwZCIsImZpcnN0TmFtZSI6InVzZXIiLCJpYXQiOjE3ODA1NDEyMTUsImV4cCI6MTc4MDU0NDgxNX0.VPBgR--BeNKckMbWG-EglzN-NLQ_j7XpLIjhptAzGBg",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
-            "header": []
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4011/api/users/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "users",
+                "profile"
+              ]
+            }
           },
           "response": []
         }
@@ -47,16 +156,105 @@
         {
           "name": "DeleteUser",
           "request": {
-            "method": "GET",
-            "header": []
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjEwMWRkZDVmNDQxNzJhMGM0MzU5NCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MDU5NDIyOCwiZXhwIjoxNzgwNTk3ODI4fQ.6u2m9R_4kZuphPV1HV32f_usJQIaIokk9y4cPh8iD3A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"6a20e67ee4d5a406de8d510d\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:4011/api/admin/user/6a1fb509624007624f1735c7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "admin",
+                "user",
+                "6a1fb509624007624f1735c7"
+              ]
+            }
           },
           "response": []
         },
         {
           "name": "PromoteUser",
           "request": {
-            "method": "GET",
-            "header": []
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjEwMWRkZDVmNDQxNzJhMGM0MzU5NCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MDU5NDIyOCwiZXhwIjoxNzgwNTk3ODI4fQ.6u2m9R_4kZuphPV1HV32f_usJQIaIokk9y4cPh8iD3A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4011/api/admin/promote/6a1fb509624007624f1735c7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "admin",
+                "promote",
+                "6a1fb509624007624f1735c7"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PromoteUser",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjEwMWRkZDVmNDQxNzJhMGM0MzU5NCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MDU5NDIyOCwiZXhwIjoxNzgwNTk3ODI4fQ.6u2m9R_4kZuphPV1HV32f_usJQIaIokk9y4cPh8iD3A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4011/api/admin/promote/6a2101ddd5f44172a0c43594",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "admin",
+                "promote",
+                "6a2101ddd5f44172a0c43594"
+              ]
+            }
           },
           "response": []
         }
@@ -77,7 +275,40 @@
     },
     {
       "name": "Public",
-      "item": []
+      "item": [
+        {
+          "name": "New Request",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMjEwMWRkZDVmNDQxNzJhMGM0MzU5NCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc4MDU5NDIyOCwiZXhwIjoxNzgwNTk3ODI4fQ.6u2m9R_4kZuphPV1HV32f_usJQIaIokk9y4cPh8iD3A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4011/api/public/message/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "4011",
+              "path": [
+                "api",
+                "public",
+                "message",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "auth": {
