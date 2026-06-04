@@ -6,7 +6,7 @@ const protect = require("../middleware/auth.midddleware")
 
 
 
-router.delete("/delete/:id", protect, authorize("admin"), deleteUsers);
+router.delete("/user/:id", protect, authorize("admin"), deleteUsers);
 
 router.post("/promote/:id", protect, authorize("admin"), promoteUsers);
 
