@@ -68,6 +68,39 @@ Admin:
 DELETE /api/admin/user/:id (admin only, cannot delete self)  
 POST /api/admin/promote/:id (admin only, cannot promote admin)
 
+## Database Design
+
+### Collections Used
+
+### 1. Users Collection
+Stores all user information and authentication data.
+
+Fields:
+- fullName → identifies the user in the system
+- email → unique login identifier
+- password → hashed password for security
+- role → defines access level (user, moderator, admin)
+- failedLoginAttempts → tracks failed login attempts for security lock
+- lockUntil → timestamp for account lock duration
+- createdAt → tracks account creation time
+
+Why:
+This collection is the core of the system. It handles authentication, authorization, and account security.
+
+---
+
+### 2. ActivityLogs Collection
+Stores all security-related events in the system.
+
+Fields:
+- action → type of event (FAILED_LOGIN, FORBIDDEN_ACCESS, DELETE_USER)
+- user → user involved in the action
+- ipAddress → source of request for security tracking
+- timestamp → when the event happened
+
+Why:
+Used to detect suspicious activity, monitor abuse, and improve system security.
+
 ## Security Rules
 - Passwords are hashed
 - JWT required for protected routes
